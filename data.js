@@ -1,7 +1,23 @@
+import bcrypt from 'bcryptjs';
+
 const data = {
+  users: [
+    {
+      name: 'Vova',
+      email: 'admin@onlinestore.com',
+      password: bcrypt.hashSync('1234', 8),
+      isAdmin: true,
+    },
+    {
+      name: 'Luke',
+      email: 'user@onlinestore.com',
+      password: bcrypt.hashSync('1234', 8),
+      isAdmin: false,
+    },
+  ],
   products: [
     {
-      _id: '1',
+      //_id: '1',
       name: 'Star Wars Master Yoda Mug',
       category: 'Mugs',
       image: '/images/p1.jpg',
@@ -13,7 +29,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      _id: '2',
+      //_id: '2',
       name: 'Darth Vader T-Shirt',
       category: 'T-Shirts & Tops',
       image: '/images/p2.jpg',
@@ -25,7 +41,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      _id: '3',
+      //_id: '3',
       name: 'The Mandalorian Figure',
       category: 'Figures',
       image: '/images/p3.jpg',
@@ -37,7 +53,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      _id: '4',
+      //_id: '4',
       name: 'Obi-Wans Hut Building Set',
       category: 'Toys',
       image: '/images/p4.jpg',
@@ -49,7 +65,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      _id: '5',
+      //_id: '5',
       name: 'Darth Vader Costume',
       category: 'Costumes',
       image: '/images/p5.jpg',
@@ -61,7 +77,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      _id: '6',
+      //_id: '6',
       name: 'Rey LIGHTSABER Toy – Star Wars',
       category: 'Costume Accessories',
       image: '/images/p6.jpg',
