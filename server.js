@@ -4,6 +4,8 @@ import dotenv from 'dotenv';
 import mysql from 'mysql';
 import userRouter from './routers/userRouter.js';
 import productRouter from './routers/productRouter.js';
+import data from './data.js';
+import bcrypt from 'bcryptjs';
 
 dotenv.config();
 
@@ -25,6 +27,52 @@ db.connect((error) => {
     console.log('MYSQL Connected...');
   }
 });
+
+export default db;
+
+/*const {
+  name,
+  category,
+  image,
+  price,
+  countInStock,
+  brand,
+  rating,
+  numReviews,
+  description,
+} = data.products;
+
+db.query(
+  'INSERT INTO users SET ?',
+  {
+    /*    name: name,
+    category: category,
+    image: image,
+    price: price,
+    countInStock: countInStock,
+    brand: brand,
+    rating: rating,
+    numReviews: numReviews,
+    description: description,
+
+    name: 'Luke',
+    email: 'user@onlinestore.com',
+    password: bcrypt.hashSync('1234', 8),
+    isAdmin: false,
+  },
+  (error, results) => {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log(results);
+      //      return res.render('added', {
+      //        message: 'Products added',
+    }
+  }
+);
+//  }
+//);
+*/
 
 /*app.get('/api/products/:id', (req, res) => {
   const product = data.products.find((x) => x._id === req.params.id);
