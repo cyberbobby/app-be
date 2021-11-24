@@ -1,3 +1,7 @@
+import pkg from 'typeorm';
+const { createConnection } = pkg;
+//import { Users } from './src/users';
+//import { createConnection } from 'typeorm';
 import express from 'express';
 //import data from './data.js';
 import dotenv from 'dotenv';
@@ -13,7 +17,24 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const db = mysql.createConnection({
+const db = async () => {
+  try {
+    await createConnection({
+      type: 'mysql',
+      host: 'localhost',
+      user: 'root',
+      password: '',
+      database: 'online_store',
+      //      entities: [Users],
+    });
+    console.log('Connected to MySql DB');
+  } catch (error) {
+    console.error(error);
+    throw new Error('Unable to connect to MySql DB');
+  }
+};
+
+/*const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '',
@@ -26,7 +47,7 @@ db.connect((error) => {
   } else {
     console.log('MYSQL Connected...');
   }
-});
+});*/
 
 export default db;
 
